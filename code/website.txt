@@ -1,0 +1,7 @@
+tema: autonoleggio
+nome: Luxury Wheels
+
+necessità:
+- login (quasi finito, manca il php)
+- carello (mancante)
+- email (mancante)

@@ -1,0 +1,279 @@
+/* ---------------------- Default ---------------------- */
+* {
+    font-family: 'Roboto+Mono', 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+    padding: 5px 10px; /* limità l'area per cliccare i links */
+    display: inline-block; /* Impedisce che l'area cliccabile si estenda oltre il testo */
+}
+
+/* ---------------------- Header ---------------------- */
+#header {
+    position: relative;
+    height: 100vh; /* Altezza del header */
+    background: url('./auto/R8-sfondo.png') no-repeat center center/cover;
+}
+
+/* Ombra trasparente nella parte superiore dell'header */
+#header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh; /* Altezza dell'ombra */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+    pointer-events: none; /* Evita che interferisca con altri elementi */
+}
+
+/* ----------------------- Navbar ---------------------- */
+#navbar {
+    height: 10vh;
+    display: flex; /* Usa flexbox per un layout più semplice */
+    justify-content: space-between; /* Distribuisce lo spazio in modo uniforme tra gli elementi */
+    align-items: center; /* Centralizza gli elementi verticalmente */
+}
+
+#navbar a {
+    color: white;
+}
+
+#menu {
+    flex: 1; /* Consenti al menu di aumentare o ridursi per riempire lo spazio disponibile */
+    text-align: left;
+    margin-left: 5vh;
+}
+
+#menu img {
+    height: 5vh;
+    width: auto; /* Mantiene le proporzioni dell'immagine */
+    vertical-align: middle; /* Allinea l'immagine */
+    margin-right: 1vh; /* Spazio tra immagine e testo */
+}
+
+#logo {
+    flex: 1;
+    text-align: center;
+}
+
+#account {
+    flex: 1;
+    text-align: right;
+    margin-right: 5vh;
+}
+
+#account img {
+    height: 5vh;
+    width: auto;
+}
+
+/* ---------------------- Slogan ---------------------- */
+#slogan {
+    position: absolute;
+    top: 55%;
+    left: 22.5%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+}
+
+#slogan .phrase h1 {
+    font-size: 3rem; /* Aumenta la dimensione del testo */
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1); /* Ombra più intensa */
+}
+
+#slogan button {
+    margin-top: 5vh;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #ff8c00, #ff4500); /* Effetto gradiente */
+    border: none;
+    border-radius: 30px; /* Angoli arrotondati */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#slogan button a {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#slogan button:hover {
+    transform: scale(1.1); /* Leggero ingrandimento */
+    background: linear-gradient(to right, #ff4500, #ff8c00);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+}
+
+/* ---------------------- Content ---------------------- */
+#content {
+    margin-top: 0;
+    position: relative;
+    height: 100vh; /* Altezza del content */
+    background: rgb(45, 45, 45);
+}
+
+#content .phrase2 {
+    background: rgb(145,145,145);
+    background: linear-gradient(180deg, rgba(145,145,145,1) 0%, rgba(255,255,255,1) 100%);
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    text-align: center;
+    position: top;
+}
+
+#choice {
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vh 10vw; /* Margini per adattare meglio il layout */
+}
+
+#choice .phrase3 h1 {
+    padding-top: 8vh;
+    flex: 1;
+    font-size: 2.5rem; /* Aumenta la dimensione del testo */
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1); /* Ombra più intensa */
+    text-align: left;
+    padding-right: 5vw; /* Spazio tra frase e immagine */
+}
+
+#choice button {
+    margin-top: 5vh;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #ff8c00, #ff4500); /* Effetto gradiente */
+    border: none;
+    border-radius: 30px; /* Angoli arrotondati */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#choice button a {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#choice button:hover {
+    transform: scale(1.1); /* Leggero ingrandimento */
+    background: linear-gradient(to right, #ff4500, #ff8c00);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+}
+
+#choice .img-container {
+    flex: 1;
+    margin-top: 15vh;
+    width: 50vh;
+    height: 30vh; /* Altezza fissa del contenitore */
+    overflow: hidden; /* Nasconde eventuali parti in eccesso */
+    position: relative;
+    display: flex;
+    justify-content: flex-end; /* Spinge le immagini a destra */
+}
+
+#choise .slider img {
+    width: 100%; /* Occupa tutta la larghezza del contenitore */
+    height: 100%; /* Occupa tutta l'altezza del contenitore */
+    object-fit: cover; /* Taglia l'immagine per adattarla senza distorsioni */
+}
+
+#choice .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+#choice .slide {
+    width: 100%;
+    display: none;
+}
+
+#choice .slide.active {
+    display: block;
+}
+
+#choice .dot {
+    margin-top: 1vh;
+    height: 1vh;
+    width: 1vh;
+    margin: 0 0.5vh;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#choice .dots {
+    position: absolute;
+    bottom: 1vh;
+    left: 60%;
+    transform: translateX(-50%);
+    z-index: 10; /* Porta i puntini sopra l'immagine */
+    background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per visibilità */
+    padding: 0.5vh 1vh;
+    border-radius: 2vh;
+}
+
+#choice .dot.active {
+    background-color: white;
+}
+
+#choice img {
+    border: 0.1vh solid black; /* Aggiunge un bordo nero */
+    border-radius: 1vh; /* Rende gli angoli stondati */
+}
+
+/* ---------------------- footer ---------------------- */
+
+#footer {
+    margin-top: 0;
+    position: relative;
+    height: 60vh; /* Altezza del content */
+    background: rgb(45,45,45);
+    background: linear-gradient(180deg, rgba(45,45,45,1) 0%, rgba(0,0,0,1) 100%);
+    color: white; /* Colore del testo */
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+#footer-content {
+    display: flex;
+    padding-top: 10vh;
+    flex-direction: column; /* Cambia da orizzontale a verticale */
+    justify-content: flex-start; /* Allinea tutto a sinistra */
+    padding-bottom: 1vh;
+}
+
+#footer-content div {
+    padding-top: 1vh;
+    padding-left: 2vh;
+}
+
+#footer .social-media {
+    padding-top: 1vh;
+    padding-left: 3.5vh;  
+}
+
+.social-media img {
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+#footer .copyleft {
+    padding-top: 1vh;
+    padding-left: 3.5vh;
+    font-size: 0.8rem;
+}
+
+/* Stile per la bandiera e lingua */
+.lingua img {
+    width: 2vh; /* Dimensione della bandiera */
+    vertical-align: middle;
+    margin-right: 1vh;
+}
