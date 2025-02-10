@@ -38,12 +38,35 @@ function updatePrice() {
 }
 
 function checkLogin() {
-    let loggedIn = false; // Da sostituire con PHP/sessione
+    let loggedIn = "<?php echo isset($_SESSION['email']) ? 'true' : 'false'; ?>";
+    
     if (!loggedIn) {
         alert("Devi effettuare il login per procedere!");
     } else {
-        alert("Procedi al pagamento");
+        let email = "<?php echo $_SESSION['email']; ?>"; // Recupera l'email dalla sessione
+        let carName = document.getElementById("carName").textContent;
+        let carPrice = document.getElementById("summaryPrice").textContent;
+        
+        // Visualizza lo scontrino o procedi con il pagamento
+        alert(`Scontrino: \nEmail: ${email}\nAuto: ${carName}\nPrezzo: ${carPrice}`);
     }
+}
+
+function showReceipt() {
+    let carName = document.getElementById("carName").textContent;
+    let carPrice = document.getElementById("summaryPrice").textContent;
+    let email = "<?php echo $_SESSION['email']; ?>"; // Email dall'utente
+    
+    // Creazione del contenuto dello scontrino
+    let receiptContent = `
+        <h2>Scontrino di Acquisto</h2>
+        <p>Email: ${email}</p>
+        <p>Auto Noleggiata: ${carName}</p>
+        <p>Prezzo Totale: ${carPrice}</p>
+    `;
+    
+    document.getElementById("receipt").innerHTML = receiptContent;
+    document.getElementById("receipt").style.display = "block"; // Mostra lo scontrino
 }
 
 // Footer

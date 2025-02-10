@@ -1,3 +1,27 @@
+// Mostra il pop-up e l'overlay se non è stato ancora accettato
+if (!sessionStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+    document.body.classList.remove('active-body'); // Disabilita interazione
+}
+
+// Funzione per accettare i cookie
+function acceptCookies() {
+    sessionStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+    document.body.classList.add('active-body'); // Riabilita interazione
+    document.querySelector('#login-form').submit(); // Invia il form per accedere
+}
+
+// Funzione per rifiutare i cookie
+function rejectCookies() {
+    if (confirm('Sei sicuro di non voler accettare? Se non accetti verrai buttato fuori dal sito.')) {
+        // Redirige l'utente fuori dal sito
+        window.location.href = 'https://www.google.com'; // Modifica con un URL di tua scelta
+    }
+}
+
 // Contenitore delle img
 let currentIndex = 0;
 const slides = document.querySelectorAll('.slide');

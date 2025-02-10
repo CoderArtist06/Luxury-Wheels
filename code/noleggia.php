@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : null; // Recupera l'email
+
+// Se l'email non è presente, rimanda l'utente al login
+if (!$email) {
+    header('Location: account.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,8 +26,8 @@
 <body>
     <nav id="navbar">
         <div id="menu"><a href="#"><h3><img src="./icons/menu-20.png" alt="">Menu</h3></a></div>
-        <div id="logo"><a href="index.html"><h1><i>Luxury Wheels</i></h1></a></div>
-        <div id="account"><a href="account.html"><img src="./icons/account-20.png" alt="account"></a></div>
+        <div id="logo"><a href="index.php"><h1><i>Luxury Wheels</i></h1></a></div>
+        <div id="account"><a href="account.php"><img src="./icons/account-20.png" alt="account"></a></div>
     </nav>
 
     <div id="content">
@@ -72,6 +83,7 @@
         </div>
     </div>
     
+    <div id="receipt" style="display:none;"></div>
 
     <script src="script-noleggia.js"></script>
 </body>

@@ -275,3 +275,57 @@ a {
     vertical-align: middle;
     margin-right: 1vh;
 }
+
+/* ---------------------- Cookie ---------------------- */
+#cookie-popup {
+    position: fixed;
+    bottom: 30%; /* Posiziona il pop-up a circa un terzo dallo schermo */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    z-index: 1001; /* Assicurati che sia sopra l'overlay */
+}
+
+#cookie-popup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#cookie-popup button:hover {
+    background-color: #45a049;
+}
+
+/* Overlay che blocca l'interazione con la pagina */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Pieno opaco */
+    z-index: 1000; /* Deve essere sopra il resto della pagina */
+}
+
+/* Blocca l'interazione con il corpo */
+body {
+    pointer-events: none; /* Disabilita l'interazione con la pagina */
+    overflow: hidden; /* Disabilita lo scroll */
+}
+
+/* Riabilita l'interazione con la pagina solo quando il pop-up è chiuso */
+.active-body {
+    pointer-events: auto;
+    overflow: visible; /* Riabilita lo scroll */
+}

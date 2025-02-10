@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Controlla se l'utente ha già accettato i cookie
+if (isset($_SESSION['email'])) {
+    // L'utente ha già accettato i cookie, prosegui con il resto della pagina
+} else {
+    // Se l'utente non ha accettato i cookie, mostra il pop-up
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accept_cookies'])) {
+        // L'utente ha accettato i cookie, salva l'email nella sessione
+        $_SESSION['email'] = $_POST['email'];
+        header('Location: account.php'); // Puoi redirigere a una pagina di successo
+        exit();
+    } elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reject_cookies'])) {
+        // L'utente ha rifiutato i cookie, reindirizza fuori dal sito
+        echo "<script>alert('Sei sicuro di non voler accettare? Se non accetti verrai buttato fuori dal sito.'); window.location.href = 'https://www.google.com';</script>";
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -18,8 +38,8 @@
             <div id="menu">
                 <a href="#"><h3><img src="./icons/menu-20.png" alt="">Menu</h3></a>
             </div>
-            <div id="logo"><a href="index.html"><h1><i>Luxury Wheels</i></h1></a></div>
-            <div id="account"><a href="account.html"><img src="./icons/account-20.png" alt="account"></a></div>
+            <div id="logo"><a href="index.php"><h1><i>Luxury Wheels</i></h1></a></div>
+            <div id="account"><a href="account.php"><img src="./icons/account-20.png" alt="account"></a></div>
         </nav>
         <div id="slogan">
             <div class="phrase"><h1>Vivi il sogno,<br>&nbsp;&nbsp;Guida l'eccellenza</h1></div>
@@ -67,7 +87,16 @@
         </div>
     </div>
     
+    <!-- Overlay che blocca l'interazione -->
+    <div id="overlay"></div>
 
+    <!-- Pop-up per i cookie -->
+    <div id="cookie-popup">
+        <p>Questo sito utilizza solo cookie tecnici per migliorare l'esperienza. Accetti?</p>
+        <button onclick="acceptCookies()">Accetta</button>
+        <button onclick="rejectCookies()">Rifiuta</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
