@@ -1,0 +1,114 @@
+/* ---------------------- Default ---------------------- */
+* {
+    font-family: 'Roboto+Mono', 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+    padding: 5px 10px; /* limità l'area per cliccare i links */
+    display: inline-block; /* Impedisce che l'area cliccabile si estenda oltre il testo */
+}
+
+/* ----------------------- Navbar ---------------------- */
+#navbar {
+    height: 10vh;
+    display: flex; /* Usa flexbox per un layout più semplice */
+    justify-content: space-between; /* Distribuisce lo spazio in modo uniforme tra gli elementi */
+    align-items: center; /* Centralizza gli elementi verticalmente */
+    background: rgb(145,145,145);
+}
+
+#navbar a {
+    color: white;
+}
+
+#menu {
+    flex: 1; /* Consenti al menu di aumentare o ridursi per riempire lo spazio disponibile */
+    text-align: left;
+    margin-left: 5vh;
+}
+
+#menu img {
+    height: 5vh;
+    width: auto; /* Mantiene le proporzioni dell'immagine */
+    vertical-align: middle; /* Allinea l'immagine */
+    margin-right: 1vh; /* Spazio tra immagine e testo */
+}
+
+#logo {
+    flex: 1;
+    text-align: center;
+}
+
+#account {
+    flex: 1;
+    text-align: right;
+    margin-right: 5vh;
+}
+
+#account img {
+    height: 5vh;
+    width: auto;
+}
+
+
+/* --------------------- Content ---------------------- */
+#content {
+    margin-top: 0;
+    position: relative;
+    height: 180vh; /* Altezza del content */
+    background: rgb(145,145,145);
+    background: linear-gradient(180deg, rgba(145,145,145,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+
+
+/* ---------------------- footer ---------------------- */
+#footer {
+    margin-top: 0;
+    position: relative;
+    height: 60vh; /* Altezza del content */
+    background: rgb(45,45,45);
+    background: linear-gradient(180deg, rgba(45,45,45,1) 0%, rgba(0,0,0,1) 100%);
+    color: white; /* Colore del testo */
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+#footer-content {
+    display: flex;
+    padding-top: 10vh;
+    flex-direction: column; /* Cambia da orizzontale a verticale */
+    justify-content: flex-start; /* Allinea tutto a sinistra */
+    padding-bottom: 1vh;
+}
+
+#footer-content div {
+    padding-top: 1vh;
+    padding-left: 2vh;
+}
+
+#footer .social-media {
+    padding-top: 1vh;
+    padding-left: 3.5vh;  
+}
+
+.social-media img {
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+#footer .copyleft {
+    padding-top: 1vh;
+    padding-left: 3.5vh;
+    font-size: 0.8rem;
+}
+
+/* Stile per la bandiera e lingua */
+.lingua img {
+    width: 2vh; /* Dimensione della bandiera */
+    vertical-align: middle;
+    margin-right: 1vh;
+}
